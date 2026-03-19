@@ -327,7 +327,7 @@
           <a href="#overview">Overview</a>
           <a href="#tasks">System Features</a>
           <a href="#components">Hardware</a>
-          <a href="#gallery">Gallery</a>
+          <a href="#photos">Gallery</a>
           <a href="#working">How It Works</a>
           <a href="#code">Firmware</a>
         </div>
@@ -458,328 +458,39 @@
         <p>Visual documentation of the physical circuit and wiring setup.</p>
       </div>
       <div class="gallery">
+        
         <div class="gallery-card">
-          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="Full breadboard setup">
+          <img src="https://images.unsplash.com/photo-1559815554-d833f44e1c2b?q=80&w=800&auto=format&fit=crop" alt="Full breadboard setup">
           <div class="caption">
             <h3>Complete Circuit</h3>
             <p>The fully assembled project on the breadboard wired to the Arduino Uno.</p>
           </div>
         </div>
+        
         <div class="gallery-card">
-          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="LCD Display Output">
+          <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=800&auto=format&fit=crop" alt="LCD Display Output">
           <div class="caption">
             <h3>LCD Telemetry</h3>
-            <p>The 16x2 display showing live temperature, distance, and mode metrics.</p>
+            <p>The 16x2 display showing live metrics from the microcontroller.</p>
           </div>
         </div>
+        
         <div class="gallery-card">
-          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="Sensor Array">
+          <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=800&auto=format&fit=crop" alt="Sensor Array">
           <div class="caption">
             <h3>Sensor Array</h3>
-            <p>Close up of the MQ-2 gas sensor, ultrasonic sensor, and DHT11.</p>
+            <p>The hardware components used to gather environmental data.</p>
           </div>
         </div>
+
       </div>
     </section>
 
-    <section id="gallery">
+    <section id="diagrams">
       <div class="section-head">
         <h2>System Architecture Diagrams</h2>
         <p>Logical schematics detailing the relationships between the microcontroller and peripherals.</p>
       </div>
       <div class="gallery">
         <div class="gallery-card">
-          <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
-            <rect x="70" y="80" width="460" height="220" rx="22" fill="#1b2b52" stroke="#5e7cc0"/>
-            <rect x="105" y="115" width="140" height="90" rx="10" fill="#2d4479"/>
-            <text x="175" y="165" text-anchor="middle" fill="#fff" font-size="24">Arduino</text>
-            <circle cx="320" cy="150" r="20" fill="#7ae582"/><text x="320" y="156" text-anchor="middle" fill="#0d1b11" font-size="12">LED</text>
-            <circle cx="375" cy="150" r="20" fill="#ffd166"/><text x="375" y="156" text-anchor="middle" fill="#2d2508" font-size="11">WARN</text>
-            <circle cx="430" cy="150" r="20" fill="#ff6b6b"/><text x="430" y="156" text-anchor="middle" fill="#330e0e" font-size="11">DANGER</text>
-            <rect x="295" y="220" width="160" height="42" rx="8" fill="#e5f7ee" stroke="#9fd9b3"/>
-            <text x="375" y="246" text-anchor="middle" fill="#244534" font-size="18">LCD Display</text>
-            <line x1="245" y1="160" x2="300" y2="150" stroke="#8bc4ff" stroke-width="4"/>
-            <line x1="245" y1="190" x2="375" y2="220" stroke="#8bc4ff" stroke-width="4"/>
-          </svg>
-          <div class="caption">
-            <h3>Main System Layout</h3>
-            <p>Visual mapping of the output indicator LEDs and the I2C/Parallel LCD panel.</p>
-          </div>
-        </div>
-
-        <div class="gallery-card">
-          <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
-            <rect x="65" y="60" width="470" height="260" rx="20" fill="#182743" stroke="#5d7ac1"/>
-            <rect x="95" y="110" width="120" height="90" rx="12" fill="#263d6c"/>
-            <text x="155" y="160" text-anchor="middle" fill="#fff" font-size="20">LDR</text>
-            <rect x="240" y="85" width="120" height="90" rx="12" fill="#263d6c"/>
-            <text x="300" y="137" text-anchor="middle" fill="#fff" font-size="20">DHT11</text>
-            <rect x="385" y="110" width="120" height="90" rx="12" fill="#263d6c"/>
-            <text x="445" y="160" text-anchor="middle" fill="#fff" font-size="20">MQ-2</text>
-            <rect x="240" y="215" width="120" height="60" rx="12" fill="#2b4f79"/>
-            <text x="300" y="250" text-anchor="middle" fill="#fff" font-size="20">Ultrasonic</text>
-            <line x1="215" y1="155" x2="240" y2="130" stroke="#7ef0c4" stroke-width="4"/>
-            <line x1="360" y1="130" x2="385" y2="155" stroke="#7ef0c4" stroke-width="4"/>
-            <line x1="300" y1="175" x2="300" y2="215" stroke="#7ef0c4" stroke-width="4"/>
-          </svg>
-          <div class="caption">
-            <h3>Input Array</h3>
-            <p>Data acquisition logic handling ambient variables via ADC and digital protocols.</p>
-          </div>
-        </div>
-
-        <div class="gallery-card">
-          <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
-            <rect x="70" y="70" width="460" height="240" rx="22" fill="#16243e" stroke="#5c79be"/>
-            <rect x="90" y="95" width="180" height="80" rx="10" fill="#213b67"/>
-            <text x="180" y="145" text-anchor="middle" fill="#fff" font-size="20">Buttons</text>
-            <rect x="330" y="95" width="160" height="80" rx="10" fill="#213b67"/>
-            <text x="410" y="145" text-anchor="middle" fill="#fff" font-size="20">Buzzer</text>
-            <rect x="160" y="210" width="280" height="70" rx="10" fill="#2f4d84"/>
-            <text x="300" y="240" text-anchor="middle" fill="#fff" font-size="18">Modes: Auto / Manual / Emergency</text>
-            <text x="300" y="262" text-anchor="middle" fill="#cfe0ff" font-size="14">State Machine & Interrupts</text>
-          </svg>
-          <div class="caption">
-            <h3>Control Interface</h3>
-            <p>Physical toggle parameters for manual override and immediate auditory feedback.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="working">
-      <div class="section-head">
-        <h2>Operational Workflow</h2>
-        <p>Detailed sequence of how the firmware evaluates variables and executes instructions.</p>
-      </div>
-      <div class="workflow">
-        <div class="flow-box">Sensors capture analog/digital environmental data</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">Arduino evaluates variables against predefined safety thresholds</div>
-        <div class="arrow">→</div>
-        <div class="flow-box">System actuates LEDs, PWM lights, buzzer, and updates LCD</div>
-      </div>
-      <div class="grid-2" style="margin-top:18px;">
-        <div class="card">
-          <h3>Conditional Logic Framework</h3>
-          <ul>
-            <li><strong>Lighting:</strong> If ambient light decreases, PWM duty cycle increases (brighter LED).</li>
-            <li><strong>Hazard Detection:</strong> If gas levels spike, temperature exceeds safe bounds, or an obstacle breaches the minimum safe distance, emergency subroutines trigger.</li>
-            <li><strong>Status:</strong> LED colors dynamically shift (Green ➔ Yellow ➔ Red) to reflect the current threat level.</li>
-            <li><strong>Telemetry:</strong> The LCD screen polls hardware every 300ms to refresh the display.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Operational Modes</h3>
-          <ul>
-            <li><strong>Auto Mode (Default):</strong> Full autonomous regulation utilizing continuous sensor polling.</li>
-            <li><strong>Manual Mode:</strong> Fixed state with limited automated response; allows user stabilization.</li>
-            <li><strong>Emergency Mode:</strong> Immediate override triggering maximum alert state (Red LED, high-pitch buzzer).</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="code">
-      <div class="section-head">
-        <h2>Source Code (Firmware)</h2>
-        <p>The complete C++ implementation programmed onto the Arduino microcontroller.</p>
-      </div>
-      <div class="code-wrap">
-        <div class="code-head">main.ino — Developed by Khablil</div>
-        <pre><code>#include &lt;LiquidCrystal.h&gt;
-#include &lt;DHT.h&gt;
-
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-
-#define DHTPIN A0
-#define DHTTYPE DHT11
-DHT dht(DHTPIN, DHTTYPE);
-
-const int ldrPin = A1;
-const int gasPin = A2;
-const int trigPin = 6;
-const int echoPin = 7;
-
-const int redLED = 8;
-const int yellowLED = 9;
-const int greenLED = 10;
-const int pwmLED = 13;
-const int buzzerPin = A3;
-
-const int autoButton = A4;
-const int manualButton = A5;
-const int emergencyButton = A6;
-
-int mode = 0;
-float temperature = 0;
-int lightValue = 0;
-int gasValue = 0;
-long duration = 0;
-float distance = 0;
-
-void setup() {
-  lcd.begin(16, 2);
-  lcd.print("Project by");
-  lcd.setCursor(0, 1);
-  lcd.print("Khablil");
-  delay(2000);
-  lcd.clear();
-
-  dht.begin();
-  pinMode(ldrPin, INPUT);
-  pinMode(gasPin, INPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  pinMode(redLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(greenLED, OUTPUT);
-  pinMode(pwmLED, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
-  
-  pinMode(autoButton, INPUT_PULLUP);
-  pinMode(manualButton, INPUT_PULLUP);
-  pinMode(emergencyButton, INPUT_PULLUP);
-  
-  Serial.begin(9600);
-}
-
-void loop() {
-  readButtons();
-  readSensors();
-
-  if (mode == 2) {
-    emergencyMode();
-  } else if (mode == 1) {
-    manualMode();
-  } else {
-    autoMode();
-  }
-
-  updateDisplay();
-  delay(300);
-}
-
-void readButtons() {
-  if (digitalRead(autoButton) == LOW) mode = 0;
-  if (digitalRead(manualButton) == LOW) mode = 1;
-  if (digitalRead(emergencyButton) == LOW) mode = 2;
-}
-
-void readSensors() {
-  temperature = dht.readTemperature();
-  if (isnan(temperature)) temperature = 0;
-
-  lightValue = analogRead(ldrPin);
-  gasValue = analogRead(gasPin);
-
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-
-  duration = pulseIn(echoPin, HIGH);
-  distance = duration * 0.034 / 2;
-}
-
-void autoMode() {
-  int brightness = map(lightValue, 1023, 0, 0, 255);
-  brightness = constrain(brightness, 0, 255);
-  analogWrite(pwmLED, brightness);
-
-  bool danger = false;
-  bool warning = false;
-
-  if (gasValue > 450 || temperature > 40 || distance < 10) {
-    danger = true;
-  } else if (gasValue > 300 || temperature > 30 || distance < 20) {
-    warning = true;
-  }
-
-  if (danger) {
-    digitalWrite(redLED, HIGH);
-    digitalWrite(yellowLED, LOW);
-    digitalWrite(greenLED, LOW);
-    tone(buzzerPin, 1000);
-  } else if (warning) {
-    digitalWrite(redLED, LOW);
-    digitalWrite(yellowLED, HIGH);
-    digitalWrite(greenLED, LOW);
-    tone(buzzerPin, 700);
-    delay(150);
-    noTone(buzzerPin);
-  } else {
-    digitalWrite(redLED, LOW);
-    digitalWrite(yellowLED, LOW);
-    digitalWrite(greenLED, HIGH);
-    noTone(buzzerPin);
-  }
-}
-
-void manualMode() {
-  analogWrite(pwmLED, 150);
-  digitalWrite(redLED, LOW);
-  digitalWrite(yellowLED, HIGH);
-  digitalWrite(greenLED, LOW);
-
-  if (gasValue > 500 || temperature > 45 || distance < 8) {
-    tone(buzzerPin, 1200);
-  } else {
-    noTone(buzzerPin);
-  }
-}
-
-void emergencyMode() {
-  analogWrite(pwmLED, 255);
-  digitalWrite(redLED, HIGH);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(greenLED, LOW);
-  tone(buzzerPin, 1500);
-}
-
-void updateDisplay() {
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("T:");
-  lcd.print(temperature, 1);
-  lcd.print("C ");
-  lcd.print("L:");
-  lcd.print(lightValue);
-
-  lcd.setCursor(0, 1);
-  if (mode == 0) lcd.print("AUTO ");
-  else if (mode == 1) lcd.print("MANUAL ");
-  else lcd.print("EMERG ");
-
-  lcd.print("D:");
-  lcd.print(distance, 0);
-}</code></pre>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Conclusion</h2>
-        <p>
-          This project successfully proves the viability of combining disparate hardware modules into a unified, 
-          intelligent network. By prioritizing real-time responsiveness and user control, the prototype lays the 
-          groundwork for advanced IoT integrations.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Final Project Submission</h3>
-        <p>
-          This submission fulfills all requirements for autonomous sensing, variable output, user state management, 
-          and hardware telemetry logging.
-        </p>
-        <p><strong>Developed by: Khablil</strong></p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">&copy; 2024 Khablil | Embedded Systems Final Project</div>
-  </footer>
-</body>
-</html>
+          <svg viewBox="0 0 600 380" xmlns="
