@@ -225,6 +225,16 @@
       border: 1px solid var(--line);
       background: var(--panel);
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
     }
 
     .gallery-card svg {
@@ -236,6 +246,7 @@
 
     .gallery-card .caption {
       padding: 14px 16px 16px;
+      flex-grow: 1;
     }
 
     .code-wrap {
@@ -296,6 +307,8 @@
       padding: 32px 0 48px;
       color: var(--muted);
       text-align: center;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
     }
 
     @media (max-width: 980px) {
@@ -309,14 +322,14 @@
   <header>
     <div class="container">
       <nav>
-        <div class="brand">Khablil | Web Page</div>
+        <div class="brand">Khablil | Embedded Systems</div>
         <div class="nav-links">
           <a href="#overview">Overview</a>
-          <a href="#tasks">Tasks</a>
-          <a href="#components">Components</a>
-          <a href="#gallery">Project Pictures</a>
+          <a href="#tasks">System Features</a>
+          <a href="#components">Hardware</a>
+          <a href="#gallery">Gallery</a>
           <a href="#working">How It Works</a>
-          <a href="#code">Code</a>
+          <a href="#code">Firmware</a>
         </div>
       </nav>
     </div>
@@ -325,18 +338,19 @@
   <main class="container">
     <section class="hero" id="overview">
       <div class="hero-card">
-        <div class="eyebrow">Embedded Systems Project</div>
-        <h1>Smart Autonomous Monitoring and Control System</h1>
+        <div class="eyebrow">Embedded Systems Final Project</div>
+        <h1>Smart Autonomous Monitoring & Control System</h1>
         <p>
-          This project is combines environmental sensing, output control,
-          variable control, user interaction, alert notification, and live information display in one system.
-          It is designed for real-life use in smart homes, industrial monitoring, and safety automation.
+          This project combines environmental sensing, dynamic output control, 
+          user interaction, and real-time telemetry display into a single, cohesive system. 
+          It is designed as a scalable prototype for real-world applications in smart homes, 
+          industrial monitoring, and safety automation.
         </p>
         <div class="chips">
-          <span class="chip">Student: Khablil</span>
-          <span class="chip">Arduino-Based</span>
-          <span class="chip"> Tasks Project</span>
-          <span class="chip">Smart Automation</span>
+          <span class="chip">Developer: Khablil</span>
+          <span class="chip">Arduino Uno</span>
+          <span class="chip">C++ Firmware</span>
+          <span class="chip">IoT Automation</span>
         </div>
       </div>
 
@@ -344,10 +358,10 @@
         <div class="system-diagram">
           <div class="node n1">LDR Sensor</div>
           <div class="node n2">DHT11 + MQ-2</div>
-          <div class="node center">Arduino Controller</div>
+          <div class="node center">Arduino MCU</div>
           <div class="node n3">LED + Buzzer</div>
           <div class="node n4">LCD Display</div>
-          <div class="node n5">Buttons / Modes</div>
+          <div class="node n5">Mode Buttons</div>
           <div class="line" style="top: 24%; left: 28%; width: 105px; transform: rotate(35deg);"></div>
           <div class="line" style="top: 26%; left: 54%; width: 90px; transform: rotate(-28deg);"></div>
           <div class="line" style="top: 57%; left: 25%; width: 120px; transform: rotate(-18deg);"></div>
@@ -360,88 +374,118 @@
     <section>
       <div class="section-head">
         <h2>Project Objectives</h2>
-        <p>The main purpose of this project is to create one strong system instead of six weak separated ideas.</p>
+        <p>The goal was to integrate multiple fundamental embedded systems concepts into one robust architecture.</p>
       </div>
       <div class="grid-3">
-        <div class="card"><h3>Automation</h3><p>Monitor the environment automatically and respond without waiting for the user.</p></div>
-        <div class="card"><h3>Safety</h3><p>Detect danger such as gas leakage, high temperature, or close obstacles and give alerts.</p></div>
-        <div class="card"><h3>User Control</h3><p>Allow the user to change modes and manually interact with the system when needed.</p></div>
+        <div class="card"><h3>Automation</h3><p>Continuously monitor the environment and execute logic-based responses dynamically.</p></div>
+        <div class="card"><h3>Safety Thresholds</h3><p>Detect hazardous conditions such as gas leaks, extreme temperatures, or proximity breaches.</p></div>
+        <div class="card"><h3>User Override</h3><p>Provide physical interfaces allowing the user to seamlessly switch between operational states.</p></div>
       </div>
     </section>
 
     <section id="tasks">
       <div class="section-head">
-        <h2>Task Mapping</h2>
-        <p>Each required task is clearly implemented and connected to the final system.</p>
+        <h2>System Sub-Modules</h2>
+        <p>The architecture is divided into six distinct operational requirements.</p>
       </div>
       <div class="grid-3">
         <div class="card">
           <div class="task-no">1</div>
           <h3>Basic Output Control</h3>
-          <p>Status LEDs indicate the system condition.</p>
-          <p><span class="metric m-ok">Green = Safe</span><span class="metric m-warn">Yellow = Warning</span><span class="metric m-danger">Red = Danger</span></p>
+          <p>Discrete LEDs visually broadcast the overarching system state.</p>
+          <p><span class="metric m-ok">Green = Safe</span><span class="metric m-warn">Yellow = Warn</span><span class="metric m-danger">Red = Alert</span></p>
         </div>
         <div class="card">
           <div class="task-no">2</div>
-          <h3>Variable Control System</h3>
-          <p>The PWM LED changes brightness gradually according to light intensity from the LDR sensor.</p>
+          <h3>Variable Actuation</h3>
+          <p>A PWM-driven LED linearly adjusts its brightness inversely proportional to ambient light (LDR).</p>
         </div>
         <div class="card">
           <div class="task-no">3</div>
-          <h3>User Interaction System</h3>
-          <p>Buttons allow switching between Auto Mode, Manual Mode, and Emergency Mode.</p>
+          <h3>State Management</h3>
+          <p>Hardware interrupts/polling via tactile buttons to toggle Auto, Manual, and Emergency modes.</p>
         </div>
         <div class="card">
           <div class="task-no">4</div>
-          <h3>Alert / Notification System</h3>
-          <p>The buzzer produces a warning sound when dangerous conditions are detected.</p>
+          <h3>Audible Alerts</h3>
+          <p>A piezoelectric buzzer is triggered with varying frequencies based on the severity of the hazard.</p>
         </div>
         <div class="card">
           <div class="task-no">5</div>
-          <h3>Display / Information System</h3>
-          <p>The LCD shows temperature, light level, distance, and current mode in real time.</p>
+          <h3>Telemetry Display</h3>
+          <p>A 16x2 LCD renders real-time data including temperature, luminosity, distance, and current mode.</p>
         </div>
         <div class="card">
           <div class="task-no">6</div>
-          <h3>Environmental Sensing System</h3>
-          <p>The project reads light, temperature, gas, and distance data to understand its surroundings.</p>
+          <h3>Environmental Sensing</h3>
+          <p>An array of analog and digital sensors (LDR, DHT11, MQ-2, Ultrasonic) gather real-world data.</p>
         </div>
       </div>
     </section>
 
     <section id="components">
       <div class="section-head">
-        <h2>Components Used</h2>
-        <p>These are the hardware parts required to build the full system.</p>
+        <h2>Bill of Materials (Hardware)</h2>
+        <p>The core physical components utilized to prototype this system.</p>
       </div>
       <div class="grid-2">
         <div class="card">
-          <h3>Controller and Sensors</h3>
+          <h3>Microcontroller & Sensors</h3>
           <ul>
-            <li>Arduino Uno</li>
-            <li>DHT11 Temperature Sensor</li>
-            <li>LDR Light Sensor</li>
-            <li>MQ-2 Gas Sensor</li>
-            <li>Ultrasonic Sensor</li>
+            <li>Arduino Uno R3 (ATmega328P)</li>
+            <li>DHT11 Digital Temperature & Humidity Sensor</li>
+            <li>LDR (Photoresistor) Light Sensor</li>
+            <li>MQ-2 Gas / Smoke Sensor</li>
+            <li>HC-SR04 Ultrasonic Distance Sensor</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Outputs and Accessories</h3>
+          <h3>Actuators & Peripherals</h3>
           <ul>
-            <li>16x2 LCD Display</li>
-            <li>Red, Yellow, Green LEDs</li>
-            <li>PWM LED</li>
-            <li>Buzzer</li>
-            <li>Push Buttons, Breadboard, Jumper Wires, Resistors</li>
+            <li>16x2 Character LCD Display (Hitachi HD44780 compatible)</li>
+            <li>Red, Yellow, and Green 5mm Indicator LEDs</li>
+            <li>White LED (PWM controlled)</li>
+            <li>Active Piezo Buzzer</li>
+            <li>Push Buttons, Solderless Breadboard, Jumper Wires, Resistors (220Ω, 10kΩ)</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos">
+      <div class="section-head">
+        <h2>Hardware Prototype Photos</h2>
+        <p>Visual documentation of the physical circuit and wiring setup.</p>
+      </div>
+      <div class="gallery">
+        <div class="gallery-card">
+          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="Full breadboard setup">
+          <div class="caption">
+            <h3>Complete Circuit</h3>
+            <p>The fully assembled project on the breadboard wired to the Arduino Uno.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="LCD Display Output">
+          <div class="caption">
+            <h3>LCD Telemetry</h3>
+            <p>The 16x2 display showing live temperature, distance, and mode metrics.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://placehold.co/600x400/1a2340/eef3ff?text=Add+Your+Photo+Here" alt="Sensor Array">
+          <div class="caption">
+            <h3>Sensor Array</h3>
+            <p>Close up of the MQ-2 gas sensor, ultrasonic sensor, and DHT11.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="gallery">
       <div class="section-head">
-        <h2>Project Pictures</h2>
-        <p>This section adds visual explanation that many student web pages usually miss.</p>
+        <h2>System Architecture Diagrams</h2>
+        <p>Logical schematics detailing the relationships between the microcontroller and peripherals.</p>
       </div>
       <div class="gallery">
         <div class="gallery-card">
@@ -459,7 +503,7 @@
           </svg>
           <div class="caption">
             <h3>Main System Layout</h3>
-            <p>A simple visual of the Arduino, LED indicators, and LCD panel.</p>
+            <p>Visual mapping of the output indicator LEDs and the I2C/Parallel LCD panel.</p>
           </div>
         </div>
 
@@ -479,8 +523,8 @@
             <line x1="300" y1="175" x2="300" y2="215" stroke="#7ef0c4" stroke-width="4"/>
           </svg>
           <div class="caption">
-            <h3>Sensor Side</h3>
-            <p>The project reads data from light, temperature, gas, and distance sensors.</p>
+            <h3>Input Array</h3>
+            <p>Data acquisition logic handling ambient variables via ADC and digital protocols.</p>
           </div>
         </div>
 
@@ -493,11 +537,11 @@
             <text x="410" y="145" text-anchor="middle" fill="#fff" font-size="20">Buzzer</text>
             <rect x="160" y="210" width="280" height="70" rx="10" fill="#2f4d84"/>
             <text x="300" y="240" text-anchor="middle" fill="#fff" font-size="18">Modes: Auto / Manual / Emergency</text>
-            <text x="300" y="262" text-anchor="middle" fill="#cfe0ff" font-size="14">User Interaction + Alert Output</text>
+            <text x="300" y="262" text-anchor="middle" fill="#cfe0ff" font-size="14">State Machine & Interrupts</text>
           </svg>
           <div class="caption">
-            <h3>Control and Safety Section</h3>
-            <p>Users can change system mode and receive immediate warning sounds.</p>
+            <h3>Control Interface</h3>
+            <p>Physical toggle parameters for manual override and immediate auditory feedback.</p>
           </div>
         </div>
       </div>
@@ -505,56 +549,44 @@
 
     <section id="working">
       <div class="section-head">
-        <h2>How the Project Works</h2>
-        <p>This is the working principle that should always be explained in a good project website.</p>
+        <h2>Operational Workflow</h2>
+        <p>Detailed sequence of how the firmware evaluates variables and executes instructions.</p>
       </div>
       <div class="workflow">
-        <div class="flow-box">Sensors read light, temperature, gas, and distance</div>
+        <div class="flow-box">Sensors capture analog/digital environmental data</div>
         <div class="arrow">→</div>
-        <div class="flow-box">Arduino processes the sensor values</div>
+        <div class="flow-box">Arduino evaluates variables against predefined safety thresholds</div>
         <div class="arrow">→</div>
-        <div class="flow-box">System activates LEDs, PWM light, buzzer, and LCD display</div>
+        <div class="flow-box">System actuates LEDs, PWM lights, buzzer, and updates LCD</div>
       </div>
       <div class="grid-2" style="margin-top:18px;">
         <div class="card">
-          <h3>Working Logic</h3>
+          <h3>Conditional Logic Framework</h3>
           <ul>
-            <li>If light is low, LED brightness increases.</li>
-            <li>If gas level, temperature, or obstacle risk becomes high, the buzzer activates.</li>
-            <li>Status LEDs change color based on the safety condition.</li>
-            <li>The LCD screen continuously displays current sensor values and selected mode.</li>
+            <li><strong>Lighting:</strong> If ambient light decreases, PWM duty cycle increases (brighter LED).</li>
+            <li><strong>Hazard Detection:</strong> If gas levels spike, temperature exceeds safe bounds, or an obstacle breaches the minimum safe distance, emergency subroutines trigger.</li>
+            <li><strong>Status:</strong> LED colors dynamically shift (Green ➔ Yellow ➔ Red) to reflect the current threat level.</li>
+            <li><strong>Telemetry:</strong> The LCD screen polls hardware every 300ms to refresh the display.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Modes of Operation</h3>
+          <h3>Operational Modes</h3>
           <ul>
-            <li><strong>Auto Mode:</strong> full automatic control using sensors.</li>
-            <li><strong>Manual Mode:</strong> fixed behavior with limited automatic response.</li>
-            <li><strong>Emergency Mode:</strong> maximum alert state with red LED and buzzer active.</li>
+            <li><strong>Auto Mode (Default):</strong> Full autonomous regulation utilizing continuous sensor polling.</li>
+            <li><strong>Manual Mode:</strong> Fixed state with limited automated response; allows user stabilization.</li>
+            <li><strong>Emergency Mode:</strong> Immediate override triggering maximum alert state (Red LED, high-pitch buzzer).</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Real-Life Applications</h2>
-        <p>This project is suitable for many practical situations.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card"><h3>Smart Homes</h3><p>Automatic lighting, warning systems, and room monitoring.</p></div>
-        <div class="card"><h3>Industrial Safety</h3><p>Gas detection, temperature monitoring, and alert systems.</p></div>
-        <div class="card"><h3>Security and Assistance</h3><p>Obstacle awareness, alarms, and user-controlled operation modes.</p></div>
       </div>
     </section>
 
     <section id="code">
       <div class="section-head">
-        <h2>Arduino Code</h2>
-        <p>The web page includes the project code directly so nothing is missing.</p>
+        <h2>Source Code (Firmware)</h2>
+        <p>The complete C++ implementation programmed onto the Arduino microcontroller.</p>
       </div>
       <div class="code-wrap">
-        <div class="code-head">Smart Autonomous Monitoring and Control System — Code by Khablil</div>
+        <div class="code-head">main.ino — Developed by Khablil</div>
         <pre><code>#include &lt;LiquidCrystal.h&gt;
 #include &lt;DHT.h&gt;
 
@@ -604,9 +636,11 @@ void setup() {
   pinMode(greenLED, OUTPUT);
   pinMode(pwmLED, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
+  
   pinMode(autoButton, INPUT_PULLUP);
   pinMode(manualButton, INPUT_PULLUP);
   pinMode(emergencyButton, INPUT_PULLUP);
+  
   Serial.begin(9600);
 }
 
@@ -657,9 +691,9 @@ void autoMode() {
   bool danger = false;
   bool warning = false;
 
-  if (gasValue &gt; 450 || temperature &gt; 40 || distance &lt; 10) {
+  if (gasValue > 450 || temperature > 40 || distance < 10) {
     danger = true;
-  } else if (gasValue &gt; 300 || temperature &gt; 30 || distance &lt; 20) {
+  } else if (gasValue > 300 || temperature > 30 || distance < 20) {
     warning = true;
   }
 
@@ -689,7 +723,7 @@ void manualMode() {
   digitalWrite(yellowLED, HIGH);
   digitalWrite(greenLED, LOW);
 
-  if (gasValue &gt; 500 || temperature &gt; 45 || distance &lt; 8) {
+  if (gasValue > 500 || temperature > 45 || distance < 8) {
     tone(buzzerPin, 1200);
   } else {
     noTone(buzzerPin);
@@ -728,24 +762,24 @@ void updateDisplay() {
       <div class="section-head">
         <h2>Conclusion</h2>
         <p>
-          This final project web page presents everything clearly in one place: the idea, objectives,
-          task mapping, project pictures, components, working principle, real-life applications, and the full code.
-          The project demonstrates a complete smart automation system and is stronger than a basic unfinished student page.
+          This project successfully proves the viability of combining disparate hardware modules into a unified, 
+          intelligent network. By prioritizing real-time responsiveness and user control, the prototype lays the 
+          groundwork for advanced IoT integrations.
         </p>
       </div>
       <div class="card">
-        <h3>Final Statement</h3>
+        <h3>Final Project Submission</h3>
         <p>
-          This project demonstrates a complete smart automation system integrating sensing, control,
-          user interaction, alert notification, and real-time monitoring for practical real-world applications.
+          This submission fulfills all requirements for autonomous sensing, variable output, user state management, 
+          and hardware telemetry logging.
         </p>
-        <p><strong>Prepared by: Khablil</strong></p>
+        <p><strong>Developed by: Khablil</strong></p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">Final Project Web Page — Smart Autonomous Monitoring and Control System — Khablil</div>
+    <div class="container">&copy; 2024 Khablil | Embedded Systems Final Project</div>
   </footer>
 </body>
 </html>
